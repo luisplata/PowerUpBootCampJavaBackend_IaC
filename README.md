@@ -58,7 +58,7 @@ Estructura modular:
 /envs/dev, /envs/prod → variables + main.tf para cada ambiente.
 
 Cada repo de micro o lambda genera artefacto (Docker image o ZIP) y Terraform los consume desde ECR/S3.
-
+```batch
 infra/
 ├── modules/                # Módulos reutilizables (infra genérica)
 │   ├── vpc/
@@ -91,3 +91,4 @@ infra/
 │   └── locals.tf           # tags comunes, prefijos, naming
 │
 └── README.md
+```
