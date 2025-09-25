@@ -17,7 +17,7 @@ resource "aws_apigatewayv2_integration" "lambda_integration" {
 # Route: cualquier request -> Lambda
 resource "aws_apigatewayv2_route" "default" {
   api_id    = aws_apigatewayv2_api.this.id
-  route_key = "ANY /{proxy+}"
+  route_key = "POST /api/v1/calcular-capacidad"
   target    = "integrations/${aws_apigatewayv2_integration.lambda_integration.id}"
 }
 

@@ -290,8 +290,8 @@ module "lambda_capacidad" {
   name      = "${local.prefix}-capacidad-fn"
   s3_bucket = "endeudamiento-dev-serverlessdeploymentbucket-kovpz6bxirtm"
   s3_key    = "serverless/endeudamiento/dev/1758207685141-2025-09-18T15:01:25.141Z/endeudamiento.zip"
-  handler   = "index.handler"
-  runtime   = "nodejs18.x"
+  handler   = "src/infrastructure/handlers/calcularCapacidadHandler.calcularCapacidad"
+  runtime   = "nodejs20.x"
   environment = {
     DYNAMO_TABLE = module.dynamodb.table_name
   }
@@ -303,8 +303,8 @@ module "lambda_envio_correo" {
   name        = "${local.prefix}-envio-correo-fn"
   s3_bucket   = "send-mail-dev-serverlessdeploymentbucket-zyobmw2e2btd"
   s3_key      = "serverless/send-mail/dev/1757381960239-2025-09-09T01:39:20.239Z/send-mail.zip"
-  handler     = "index.handler"
-  runtime     = "nodejs18.x"
+  handler     = "src/handler.readSqsToEmail"
+  runtime     = "nodejs20.x"
   environment = { SES_FROM = var.ses_from }
   event_sources = [
     {
